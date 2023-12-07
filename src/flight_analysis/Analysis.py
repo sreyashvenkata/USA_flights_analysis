@@ -1,7 +1,13 @@
+"""
+Importing required libraries
+"""
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.ticker as mtick
 
+"""
+Creating a class named analysis to define all the functions
+"""
 class Analysis:
     def __init__(self):
         self.df = None  # Initialize df as None
@@ -14,10 +20,6 @@ class Analysis:
         Find and print the top routes by total passengers.
 
         This method identifies and prints the top routes based on the total number of passengers.
-
-        Returns
-        -------
-        None
         """
         # Combining Origin and Destination columns to create a 'Route' column
         self.df['Route'] = self.df['Origin'] + ' to ' + self.df['Destination']
@@ -29,10 +31,6 @@ class Analysis:
         Find and print the top city-to-city routes by total passengers.
 
         This method identifies and prints the top city-to-city routes based on the total number of passengers.
-
-        Returns
-        -------
-        None
         """
         # Combining Origin City and Destination City columns to create a 'City_Route' column
         self.df['City_Route'] = self.df['Origin_City'] + ' to ' + self.df['Destination_City']
@@ -44,10 +42,6 @@ class Analysis:
         Find and print the top state-to-state routes by total passengers.
 
         This method identifies and prints the top state-to-state routes based on the total number of passengers.
-
-        Returns
-        -------
-        None
         """
         # Combining Origin State and Destination State columns to create a 'State_Route' column
         self.df['State_Route'] = self.df['Origin_State'] + ' to ' + self.df['Destination_State']
@@ -81,10 +75,6 @@ class Analysis:
     def airports(self):
         """
         Top and bottom airports by passenger count.
-
-        Returns
-        -------
-        None
         """
         # Combine Origin and Destination columns to create an 'Airport' column
         self.df['Airport'] = self.df['Origin']
@@ -98,10 +88,6 @@ class Analysis:
     def state_passenger_data(self):
         """
         Top states by passenger count.
-
-        Returns
-        -------
-        None
         """
         state_passenger_data = self.df.groupby('Origin_State')['Passengers'].sum().sort_values(ascending=False)
         print("Top States by Passenger Count:")
