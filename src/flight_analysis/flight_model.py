@@ -1,4 +1,4 @@
-# flight_model.py
+        # flight_model.py
 
 import numpy as np
 import pandas as pd
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 class FlightModel:
     def __init__(self, data_processor):
         self.df = data_processor.df
-        self.model = None
+        #self.model = None
 
     def preprocess_data(self):
         """
